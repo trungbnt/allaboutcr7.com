@@ -1,0 +1,15 @@
+/* Customize CSS */
+.season-name {
+  border: 1px solid #ddd;
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.season-name:hover {
+  border: 1px solid #484c50;
+  background: #484c50;
+  color: #ddd;
+  padding: 20px;
+}

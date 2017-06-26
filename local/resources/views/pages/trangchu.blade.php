@@ -118,19 +118,51 @@
 			</div>
 		</div>
 		<div class="row" class="animate-box">
-			@foreach ($achivement as $a)
-			<div class="fh5co-text" id="tab-season">
-				<h2>{{$a->season}}</h2>
+			<?php
+			$season_first = DB::table('tblachivement')->select('season')->groupBy('season')->orderBy('season', 'desc')->first(); 	
+			$season = DB::table('tblachivement')->select('season')->groupBy('season')->orderBy('season', 'desc')->whereNotIn('season', ['2016-2017'])->get();
+			//var_dump ($season);
+			//die();
+			?>
+			<div class="fh5co-text tab-season" id="tab-season-{{$season_first->season}}">
+				<h2 class="season-name">{{$season_first->season}}</h2>
+				<?php 
+				$honours = DB::table('tblachivement')->select('hinh', 'nameLeague', 'nameTeam')->where('season', $season_first->season)->get();
+				?>
+				@foreach ($honours as $a)		
+				<div class="col-md-4 col-sm-6 col-xxs-12 animate-box achivement-season" id="achivement-season-{{$season_first->season}}">	
+					<a class="fh5co-project-item image-popup">
+						<img src="upload/achivement/{{$a->hinh}}" alt="{{$a->nameLeague}}" class="img-responsive" style="max-height: 70px;margin: 10px auto;">
+						<div class="fh5co-text">
+							<h2>{{$a->nameLeague}}</h2>
+							<p>{{$a->nameTeam}}</p>
+						</div>
+					</a>
+				</div>
+				@endforeach
 			</div>
-			<div class="col-md-4 col-sm-6 col-xxs-12 animate-box" id="achivement-season">	
-				<a href="#" class="fh5co-project-item image-popup">
-					<img src="upload/achivement/{{$a->hinh}}" alt="Image" class="img-responsive" style="max-height: 70px;margin: 10px auto;">
-					<div class="fh5co-text">
-						<h2>{{$a->nameLeague}}</h2>
-						<p>{{$a->nameTeam}}</p>
+			<div class="clearfix"></div>
+			@foreach ($season as $s)
+			<div class="fh5co-text" id="tab-season-{{$s->season}}">
+				<h2 class="season-name"><i class="glyphicon glyphicon-menu-down"></i> {{$s->season}} <i class="glyphicon glyphicon-menu-down"></i></h2>
+				<?php 
+				$honours = DB::table('tblachivement')->select('hinh', 'nameLeague', 'nameTeam')->where('season', $s->season)->get();
+				?>
+				<div class="achivement" style="display: none;" id="achivement-season-{{$s->season}}">
+					@foreach ($honours as $a)		
+					<div class="col-md-4 col-sm-6 col-xxs-12 animate-box">	
+						<a class="fh5co-project-item image-popup">
+							<img src="upload/achivement/{{$a->hinh}}" alt="{{$a->nameLeague}}" class="img-responsive" style="max-height: 70px;margin: 10px auto;">
+							<div class="fh5co-text">
+								<h2>{{$a->nameLeague}}</h2>
+								<p>{{$a->nameTeam}}</p>
+							</div>
+						</a>
 					</div>
-				</a>
+					@endforeach					
+				</div>
 			</div>
+			<div class="clearfix"></div>
 			@endforeach
 		</div>
 	</div>

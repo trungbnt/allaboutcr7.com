@@ -56,6 +56,7 @@
         <![endif]-->
 
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/custom.css">
         
         <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
@@ -469,6 +470,49 @@
 </script>
 <!-- Main JS (Do not remove) -->
 <script src="js/main.js"></script>
+
+<!-- Toogle Achivement by Season -->
+<script>
+    $(document).ready(function(){
+        $("#tab-season-2015-2016").click(function(){
+            $("#achivement-season-2015-2016").toggle(400);
+        });
+        $("#tab-season-2014-2015").click(function(){
+            $("#achivement-season-2014-2015").toggle(400);
+        });
+        $("#tab-season-2013-2014").click(function(){
+            $("#achivement-season-2013-2014").toggle(400);
+        });
+        $("#tab-season-2012-2013").click(function(){
+            $("#achivement-season-2012-2013").toggle(400);
+        });
+        $("#tab-season-2011-2012").click(function(){
+            $("#achivement-season-2011-2012").toggle(400);
+        });
+        $("#tab-season-2010-2011").click(function(){
+            $("#achivement-season-2010-2011").toggle(400);
+        });
+        $("#tab-season-2009-2010").click(function(){
+            $("#achivement-season-2009-2010").toggle(400);
+        });
+        $("#tab-season-2008-2009").click(function(){
+            $("#achivement-season-2008-2009").toggle(400);
+        });
+        $("#tab-season-2007-2008").click(function(){
+            $("#achivement-season-2007-2008").toggle(400);
+        });
+        $("#tab-season-2006-2007").click(function(){
+            $("#achivement-season-2006-2007").toggle(400);
+        });
+        $("#tab-season-2005-2006").click(function(){
+            $("#achivement-season-2005-2006").toggle(400);
+        });
+        $("#tab-season-2003-2004").click(function(){
+            $("#achivement-season-2003-2004").toggle(400);
+        });
+    });
+
+</script>
 
 @yield('script')
 
